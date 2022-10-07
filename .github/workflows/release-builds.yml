@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Release build
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Unix release build
+        run: cargo build --release
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: example-build
+          path: ./target/release/rust-project-template
+          retention-days: 10
+          if-no-files-found: warn
