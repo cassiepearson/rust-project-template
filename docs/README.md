@@ -7,6 +7,6 @@ Building requires pandoc and tex-live.
 To build, run the github action or from the root directory of the repository run:
 
 ```
-pandoc ./docs/example.md -o ./docs/built_example.pdf --template document.latex --data-dir=./docs/
+pandoc ./docs/example.md -o ./docs/built_example.pdf --template rust_docs.template --data-dir=./docs/
 ```
 
