@@ -17,7 +17,7 @@ jobs:
           run: sudo apt install pandoc texlive-full -y
 
         - name: Build targeted document
-          run: pandoc ./docs/example.md -o ./docs/built_example.pdf --template document.latex --data-dir=./docs/
+          run: pandoc ./docs/example.md -o ./docs/built_example.pdf --template rust_docs.template --data-dir=./docs/
 
         - uses: actions/upload-artifact@v3
           with:
