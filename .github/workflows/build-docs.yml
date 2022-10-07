@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+      - docs/*
+
+name: Build Pandoc Documentation
+
+jobs:
+    build-documentation:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Install pandoc
+          run: sudo apt install pandoc texlive-full -y
+
+        - name: Build targeted document
+          run: pandoc ./docs/example.md -o ./docs/built_example.pdf --template document.latex --data-dir=./docs/
+
+        - uses: actions/upload-artifact@v3
+          with:
+            name: example-document
+            path: ./docs/built_example.pdf 
+            retention-days: 10
+            if-no-files-found: warn
