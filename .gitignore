@@ -12,7 +12,11 @@ Cargo.lock
 *.pdb
 
 # MacOS director files
-.DS_store
+.DS_Store
 
 # Clion/jetbrains
 .idea/*
+
+# Personal
+*.todo
+*.notes
